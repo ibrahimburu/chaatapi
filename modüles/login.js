@@ -4,7 +4,7 @@ const jwt = require('../controllers/jsonwebtoken');
 const member = require('../models/register');
 
 module.exports.login = async (req, res) => {
-    const user = await member.find({email:req.body.email});
+    const user = await member.find({ email: req.body.email });
     if (!(user[0])) {
         res.status(404).json({
             message: 'user not found',
