@@ -32,10 +32,10 @@ module.exports.registerUser = async (req, res) => {
             newusers.pass = await hash.encrypt(newusers.pass);
             const status = await createRegister.createRegister(newusers);
             if (status) {
-                sendmail.sendmail(newusers.email,newusers.id,newusers.name)
+                sendmail.sendmail(newusers.email, newusers.id, newusers.name)
                 res.status(201).json({
                     message: 'işlem başarılı',
-                    status:true,
+                    status: true,
                     newusers,
                 })
             }
